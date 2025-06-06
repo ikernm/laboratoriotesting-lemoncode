@@ -14,6 +14,18 @@ describe("dameNumeroAleatorio", () => {
         // Assert
         expect(resultadoEsperado).toBe(resultado);
     });
+
+    it("Debería devolver un 10 cuando el número aleatorio sea igual a 0.9", () => {
+        // Arrange
+        const resultadoEsperado: number = 10;
+        vi.spyOn(Math, "random").mockReturnValue(0.9);
+
+        // Act
+        const resultado = dameNumeroAleatorio();
+
+        // Assert
+        expect(resultadoEsperado).toBe(resultado);
+    })
 });
 
 describe('dameNumeroCarta', () => {
@@ -40,13 +52,23 @@ describe('dameNumeroCarta', () => {
         // Assert
         expect(resultadoEsperado).toBe(resultado);
     })
-})
 
+    it("debería de devolver la carta 12 cuando el número aleatorio es un 10", () => {
+        // Arrange
+        const resultadoEsperado=12;
+        const numeroAleatorio=10;
+
+        //Act
+        const resultado = dameNumeroCarta(numeroAleatorio);
+
+        //Assert
+        expect(resultadoEsperado).toBe(resultado);
+    })
+})
 
 describe('damePuntosCarta', () => {
     it('debería de devolver 0.5, cuando la carta sea 10', () => {
         // Arrange
-
         const resultadoEsperado = 0.5;
         const carta = 10;
 
@@ -59,7 +81,6 @@ describe('damePuntosCarta', () => {
 
     it('debería de devolver 2, cuando la carta sea 2', () => {
         // Arrange
-
         const resultadoEsperado = 2;
         const carta = 2;
 
